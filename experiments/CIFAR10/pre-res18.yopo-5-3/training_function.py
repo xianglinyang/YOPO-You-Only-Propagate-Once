@@ -4,7 +4,7 @@ from config import config
 
 from loss import Hamiltonian, cal_l2_norm
 
-from utils.misc import torch_accuracy, AvgMeter
+from lib.utils.misc import torch_accuracy, AvgMeter
 from collections import OrderedDict
 import torch
 from tqdm import tqdm
