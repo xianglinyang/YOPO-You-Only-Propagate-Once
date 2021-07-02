@@ -4,7 +4,7 @@ father_dir = os.path.join('/',  *os.path.realpath(__file__).split(os.path.sep)[:
 #print(father_dir)
 if not father_dir in sys.path:
     sys.path.append(father_dir)
-from utils.misc import torch_accuracy, AvgMeter
+from lib.utils.misc import torch_accuracy, AvgMeter
 from collections import OrderedDict
 import torch
 from tqdm import tqdm

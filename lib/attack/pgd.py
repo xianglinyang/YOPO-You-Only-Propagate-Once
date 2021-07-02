@@ -11,7 +11,7 @@ import sys
 father_dir = os.path.join('/', *os.path.realpath(__file__).split(os.path.sep)[:-2])
 if not father_dir in sys.path:
     sys.path.append(father_dir)
-from attack.attack_base import AttackBase, clip_eta
+from lib.attack.attack_base import AttackBase, clip_eta
 
 class IPGD(AttackBase):
     # ImageNet pre-trained mean and std
