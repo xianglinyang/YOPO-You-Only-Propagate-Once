@@ -48,8 +48,8 @@ if __name__ == "__main__":
 
     for n_epoch in range(1, 51, 1):
 
-        descrip_str = 'Training epoch:{}/{} -- lr:{}'.format(n_epoch, config.num_epochs, lr_scheduler.get_last_lr())
-                                                                           # lr_scheduler.get_lr()[0])
+        descrip_str = 'Training epoch:{}/{} -- lr:{}'.format(n_epoch, config.num_epochs,
+                                                                           lr_scheduler.get_lr()[0])
         train_one_epoch(net, ds_train, optimizer, criterion, DEVICE,
                         descrip_str, TrainAttack, adv_coef = args.adv_coef)
         # if config.val_interval > 0 and n_epoch % config.val_interval == 0:
