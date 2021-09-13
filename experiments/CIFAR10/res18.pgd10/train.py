@@ -46,17 +46,14 @@ if __name__ == "__main__":
     eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
     torch.save(net.state_dict(), os.path.join(save_dir, "{:d}.pth".format(0)))
 
-    for n_epoch in range(1, 51, 1):
+    for n_epoch in range(1, 105, 1):
 
         descrip_str = 'Training epoch:{}/{} -- lr:{}'.format(n_epoch, config.num_epochs,
                                                                            lr_scheduler.get_lr()[0])
         train_one_epoch(net, ds_train, optimizer, criterion, DEVICE,
-                        descrip_str, TrainAttack, adv_coef = args.adv_coef)
-        # if config.val_interval > 0 and n_epoch % config.val_interval == 0:
-        #     eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+                        descrip_str, TrainAttack, adv_coef=args.adv_coef)
+
         eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
 
         lr_scheduler.step()
-
-        if n_epoch % 2 == 0:
-            torch.save(net.state_dict(), os.path.join(save_dir, "{:d}.pth".format(n_epoch)))
+        torch.save(net.state_dict(), os.path.join(save_dir, "{:d}.pth".format(n_epoch)))
